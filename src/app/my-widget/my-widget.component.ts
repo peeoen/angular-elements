@@ -16,7 +16,6 @@ import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angu
   encapsulation: ViewEncapsulation.Native
 })
 export class MyWidgetComponent {
-
   @Input() number = 0;
   @Output() change = new EventEmitter();
 

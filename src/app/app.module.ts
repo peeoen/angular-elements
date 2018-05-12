@@ -1,18 +1,20 @@
+import { Injector, NgModule } from '@angular/core';
+import { createCustomElement } from '@angular/elements';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
 import { MyWidgetComponent } from './my-widget/my-widget.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    MyWidgetComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  declarations: [MyWidgetComponent],
+  imports: [BrowserModule],
+  entryComponents: [MyWidgetComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private injector: Injector) {
+    const customButton = createCustomElement(MyWidgetComponent, {
+      injector: injector,
+     });
+     customElements.define('my-widget', customButton);
+  }
+
+  ngDoBootstrap() {}
+}
