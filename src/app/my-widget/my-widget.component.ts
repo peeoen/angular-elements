@@ -21,10 +21,12 @@ export class MyWidgetComponent {
 
   increment() {
     ++this.number;
+    console.log('increase');
     this.change.emit(this.number);
   }
 
   decrement() {
+    console.log('decrease');
     --this.number;
     this.change.emit(this.number);
   }

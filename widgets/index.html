@@ -8,12 +8,22 @@
 </head>
 <body>
   <my-widget></my-widget>
+  <hr>
+  <input id="inputNum" type="text">
+  <button id="myNum">Set number</button>
   <script src="my-widget.js"></script>
   <script>
-      const widget = document.querySelector('my-widget');
-      widget.addEventListener('change', (event) => {
-          console.log(event.detail);
-      })
+    const btn = document.getElementById('myNum');
+    btn.addEventListener('click', (event) => {
+      const input = document.getElementById('inputNum');
+      widget.number = input.value;
+    })
+
+    const widget = document.querySelector('my-widget');
+    widget.addEventListener('change', (event) => {
+      console.log(event.detail);
+    })
+
   </script>
 </body>
 </html>
